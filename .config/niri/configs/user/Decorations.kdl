@@ -1,0 +1,50 @@
+// Converted from UserConfigs/UserDecorations.conf (closest Niri equivalents).
+
+// Ask clients to omit client-side decorations where possible.
+// This helps remove extra title/header bars on apps like kitty/spotify.
+prefer-no-csd
+
+layout {
+    gaps 4
+
+    focus-ring {
+        on
+        width 2
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+    }
+
+    shadow {
+        on
+        softness 18
+        spread 3
+        offset x=0 y=3
+        color "#0007"
+    }
+
+    background-color "transparent"
+}
+
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+// Set the regular wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}
+
+// Optionally, disable the workspace shadows in the overview.
+overview {
+  workspace-shadow {
+    off
+  }
+}
+
+
+// cursor {
+//     xcursor-theme "Moga-Neon-PurpleBright"
+//     xcursor-size 8
+// }

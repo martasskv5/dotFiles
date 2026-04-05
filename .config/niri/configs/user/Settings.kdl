@@ -1,0 +1,6 @@
+// Converted placeholder from UserConfigs/UserSettings.conf.
+// Add extra Niri-specific overrides here.
+
+debug {
+    render-drm-device "/dev/dri/renderD129"
+}

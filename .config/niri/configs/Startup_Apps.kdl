@@ -1,0 +1,21 @@
+// Hypr-style startup app list for niri.
+
+spawn-at-startup "awww-daemon" "--format" "xrgb"
+spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/RestoreWallpaper.sh"
+spawn-at-startup "kanshi"
+// spawn-at-startup "waybar"
+spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "nm-applet" "--indicator"
+spawn-at-startup "swaync"
+spawn-at-startup "hypridle"
+spawn-at-startup "rog-control-center"
+spawn-at-startup "blueman-applet"
+
+spawn-at-startup "qs" "-c" "overview"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+
+spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/Dropterminal.sh kitty"
+spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/Polkit.sh"
+spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/Hyprsunset.sh init"
+spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/KeybindsLayoutInit.sh"

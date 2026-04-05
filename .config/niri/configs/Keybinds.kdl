@@ -1,0 +1,134 @@
+// Hypr-style migrated keybinds for niri.
+// Priority: keep familiar shortcuts and route unsupported features through your existing scripts.
+
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // App launchers
+    Mod+D { spawn-sh "pkill rofi || true && rofi -show drun -modi drun,filebrowser,run,window"; }
+    Mod+Return { spawn "kitty"; }
+    Mod+E { spawn "thunar"; }
+    Mod+B { spawn "xdg-open" "https://"; }
+
+    // Hypr script integrations
+    Mod+A { spawn-sh "$HOME/.config/niri/scripts/OverviewToggle.sh"; }
+    Mod+H { spawn-sh "$HOME/.config/niri/scripts/KeyHints.sh"; }
+    Mod+T { spawn-sh "$HOME/.config/niri/scripts/ThemeChanger.sh"; }
+    Mod+Shift+Return { spawn-sh "$HOME/.config/niri/scripts/Dropterminal.sh kitty"; }
+    Mod+V { spawn-sh "$HOME/.config/niri/scripts/ClipManager.sh"; }
+    Mod+Alt+E { spawn-sh "$HOME/.config/niri/scripts/RofiEmoji.sh"; }
+    Mod+S { spawn-sh "$HOME/.config/niri/scripts/RofiSearch.sh"; }
+    Mod+Ctrl+S { spawn-sh "rofi -show window"; }
+    Mod+Shift+K { spawn-sh "$HOME/.config/niri/scripts/KeyBinds.sh"; }
+    Mod+Alt+R { spawn-sh "$HOME/.config/niri/scripts/Refresh.sh"; }
+    Mod+Alt+O { spawn-sh "$HOME/.config/niri/scripts/ChangeBlur.sh"; }
+    Mod+Shift+G { spawn-sh "$HOME/.config/niri/scripts/GameMode.sh"; }
+    // Mod+Alt+L { spawn-sh "$HOME/.config/niri/scripts/ChangeLayout.sh"; }
+    // Mod+Ctrl+B { spawn-sh "$HOME/.config/niri/scripts/WaybarStyles.sh"; }
+    // Mod+Alt+B { spawn-sh "$HOME/.config/niri/scripts/WaybarLayout.sh"; }
+    // Mod+Ctrl+Alt+B { spawn-sh "pkill -SIGUSR1 waybar"; }
+    Mod+N { spawn-sh "$HOME/.config/niri/scripts/Hyprsunset.sh toggle"; }
+    Mod+Shift+A { spawn-sh "$HOME/.config/niri/scripts/Animations.sh"; }
+    Mod+Alt+C { spawn-sh "$HOME/.config/niri/UserScripts/RofiCalc.sh"; }
+    Mod+Ctrl+R { spawn-sh "$HOME/.config/niri/scripts/RofiThemeSelector.sh"; }
+    Mod+Ctrl+Shift+R { spawn-sh "pkill rofi || true && $HOME/.config/niri/scripts/RofiThemeSelector-modified.sh"; }
+    Mod+W { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperSelect.sh"; }
+    Mod+Shift+W { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperEffects.sh"; }
+    Ctrl+Alt+W { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperRandom.sh"; }
+
+    // Session / system
+    Mod+Q repeat=false { close-window; }
+    Mod+Shift+Q { spawn-sh "$HOME/.config/niri/scripts/KillActiveProcess.sh"; }
+    // Mod+L { spawn-sh "$HOME/.config/niri/scripts/LockScreen.sh"; }
+    Mod+L { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Ctrl+Alt+Delete { quit; }
+    Mod+Shift+N { spawn-sh "swaync-client -t -sw"; }
+    Mod+Shift+E { spawn-sh "$HOME/.config/niri/scripts/Kool_Quick_Settings.sh"; }
+    Ctrl+Alt+P { spawn-sh "$HOME/.config/niri/scripts/Wlogout.sh"; }
+    Mod+Shift+P { power-off-monitors; }
+
+    // Layout and window controls
+    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { maximize-column; }
+    Mod+Alt+Space { toggle-window-floating; }
+    Mod+Alt+W { toggle-column-tabbed-display; }
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+Alt+R { reset-window-height; }
+
+    // Focus movement
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-down; }
+
+    // Move windows / columns
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Down  { move-window-down; }
+
+    // Monitor navigation and moving columns to monitor
+    Mod+Shift+Left  { focus-monitor-left; }
+    Mod+Shift+Right { focus-monitor-right; }
+    Mod+Shift+Up    { focus-monitor-up; }
+    Mod+Shift+Down  { focus-monitor-down; }
+
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+
+    // Workspaces
+    Mod+Tab { focus-workspace-down; }
+    Mod+Shift+Tab { focus-workspace-up; }
+    Mod+Space { switch-layout "next"; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+
+    // Media and hardware keys
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --inc"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --dec"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle"; }
+    XF86AudioMicMute allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle-mic"; }
+
+    XF86AudioPlay allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --pause"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --pause"; }
+    XF86AudioNext allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --nxt"; }
+    XF86AudioPrev allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --prv"; }
+    XF86AudioStop allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --stop"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Brightness.sh --inc"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Brightness.sh --dec"; }
+
+    // Screenshots
+    Print { screenshot; }
+    Mod+Print { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --now"; }
+    Mod+Shift+Print { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --area"; }
+    Mod+Ctrl+Print { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --in5"; }
+    Alt+Print { screenshot-window; }
+
+    // Mouse wheel workspace cycling
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+}

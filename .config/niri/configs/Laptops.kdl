@@ -1,0 +1,18 @@
+// Mapped from hypr/configs/Laptops.conf and UserConfigs/Laptops.conf.
+// Device-specific toggles are implemented via keybinds and external scripts.
+
+binds {
+    XF86KbdBrightnessDown allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/BrightnessKbd.sh --dec"; }
+    XF86KbdBrightnessUp allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/BrightnessKbd.sh --inc"; }
+
+    XF86Launch1 { spawn "rog-control-center"; }
+    XF86Launch3 { spawn "asusctl" "led-mode" "-n"; }
+    XF86Launch4 { spawn "asusctl" "profile" "-n"; }
+    XF86TouchpadToggle { spawn-sh "$HOME/.config/niri/scripts/TouchPad.sh"; }
+
+    Mod+F6 { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --now"; }
+    Mod+Shift+F6 { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --area"; }
+    Mod+Ctrl+F6 { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --in5"; }
+    Mod+Alt+F6 { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --in10"; }
+    Alt+F6 { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --active"; }
+}

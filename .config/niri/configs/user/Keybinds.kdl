@@ -1,0 +1,5 @@
+// Converted from UserConfigs/UserKeybinds.conf
+
+binds {
+    Alt+Space { spawn "vicinae" "open"; }
+}

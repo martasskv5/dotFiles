@@ -1,0 +1,10 @@
+// Mapped from hypr/UserConfigs/UserAnimations.conf.
+// Niri does not expose Hypr-style bezier and per-animation curve controls.
+// This module keeps animations enabled and isolated for quick tuning.
+
+animations {
+    on
+    slowdown 0.9
+}
+
+// Keep this in a separate file so you can iterate like hypr/animations/*.conf.

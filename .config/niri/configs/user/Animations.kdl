@@ -1,0 +1,7 @@
+// Converted from UserConfigs/UserAnimations.conf.
+// Hypr bezier and per-animation controls are not directly available in Niri.
+
+animations {
+    on
+    slowdown 1.0
+}

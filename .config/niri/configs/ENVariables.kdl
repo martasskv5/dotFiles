@@ -1,0 +1,5 @@
+// Mapped from hypr/configs/ENVariables.conf and UserConfigs/ENVariables.conf.
+// Niri cannot declare process environment variables directly in KDL.
+// We apply the same values through a startup helper script.
+
+spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/session-env.sh"

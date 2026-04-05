@@ -1,0 +1,67 @@
+// Mapped from hypr/configs/WindowRules.conf and UserConfigs/WindowRules.conf.
+// Niri has fewer per-window knobs than Hypr; unsupported options are intentionally omitted.
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(org\.wezfurlong\.wezterm|kitty|Alacritty)$"#
+    default-column-width {}
+}
+
+window-rule {
+    match app-id=r#"^(pavucontrol|org\.pulseaudio\.pavucontrol|com\.saivert\.pwvucontrol)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(org\.gnome\.Calculator|qalculate-gtk)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(mpv|vlc|com\.github\.rafostar\.Clapper)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^PacketTracer$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(org\.gnome\.Nautilus|thunar|pcmanfm-qt|app\.drey\.Warp)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(nm-applet|nm-connection-editor|blueman-manager)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(org\.gnome\.SystemMonitor|gnome-system-monitor|io\.missioncenter\.MissionCenter)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(org\.telegram\.desktop|discord|WebCord|vesktop|Element)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(steam|com\.heroicgameslauncher\.hgl|lutris)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(qt5ct|qt6ct|file-roller|org\.gnome\.FileRoller|wihotspot|wihotspot-gui)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(yad|qalculate-gtk|org\.gnome\.Calculator)$"#
+    open-floating true
+}

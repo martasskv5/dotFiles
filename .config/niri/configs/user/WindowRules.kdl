@@ -1,0 +1,7 @@
+// Converted from UserConfigs/WindowRules.conf (closest Niri equivalents).
+
+window-rule {
+    match app-id=r#"^PacketTracer$"#
+    open-floating true
+    default-column-width {}
+}

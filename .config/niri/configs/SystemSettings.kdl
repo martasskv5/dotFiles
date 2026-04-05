@@ -1,0 +1,64 @@
+// Mapped from hypr/configs/SystemSettings.conf and UserConfigs/UserDecorations.conf.
+// Keep this module close to Hypr semantics where possible.
+
+input {
+    mod-key "Super"
+
+    keyboard {
+        xkb {
+            layout "us,sk"
+        }
+
+        numlock
+        repeat-delay 300
+        repeat-rate 50
+    }
+
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+        // drag
+        // drag-lock
+        accel-speed 0.1
+    }
+
+    mouse {
+        accel-speed 0.1
+    }
+
+    // Hypr follow_mouse ~= niri focus-follows-mouse.
+    focus-follows-mouse
+}
+
+layout {
+    gaps 4
+    center-focused-column "never"
+
+    focus-ring {
+        on
+        width 1
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+    }
+
+    border {
+        on
+        width 2
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+    }
+
+    shadow {
+        on
+        softness 16
+        spread 2
+        offset x=0 y=3
+        color "#0007"
+    }
+}
+
+cursor {
+    // Closest niri equivalent for reducing jumps across workspace changes.
+    // no explicit Hypr cursor warp mode exists in niri.
+}
