@@ -1,0 +1,15 @@
+profile laptop {
+    output eDP-1 enable mode preferred position 0,0
+}
+
+profile docked {
+    output DP-4 enable mode preferred position 404,0 scale 1.00 transform normal
+    output DP-5 enable mode preferred position 2324,0 scale 1.00 transform normal
+    output eDP-1 enable mode preferred position 4244,0 scale 1.00 transform normal
+}
+
+profile lock {
+    output eDP-1 enable mode preferred position 0,0 scale 1.00 transform normal
+    output DP-4 disable
+    output DP-5 disable
+}

@@ -1,0 +1,9 @@
+.config/google-chrome/
+.config/zen/
+.config/discord/
+.config/Code/
+! .config/Code/User/settings.json
+! .config/Code/User/keybindings.json
+**/Cache/
+**/CachedData/
+**/*.log
