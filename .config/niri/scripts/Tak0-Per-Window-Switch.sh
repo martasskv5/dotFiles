@@ -17,6 +17,11 @@ CFG_FILE="$HOME/.config/niri/configs/SystemSettings.conf"
 ICON="$HOME/.config/swaync/images/ja.png"
 SCRIPT_NAME="$(basename "$0")"
 
+if command -v niri >/dev/null 2>&1; then
+  notify-send -u low -i "$ICON" "kb_layout" "Per-window keyboard layouts are not supported on Niri"
+  exit 0
+fi
+
 # Ensure map file exists
 touch "$MAP_FILE"
 

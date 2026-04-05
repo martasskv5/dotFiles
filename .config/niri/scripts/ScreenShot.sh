@@ -8,11 +8,25 @@ PICTURES_DIR="$(xdg-user-dir PICTURES 2>/dev/null || echo "$HOME/Pictures")"
 dir="$PICTURES_DIR/Screenshots"
 file="Screenshot_${time}_${RANDOM}.png"
 
+get_focused_window() {
+	niri msg -j focused-window 2>/dev/null || true
+}
+
+get_focused_output() {
+	niri msg -j focused-output 2>/dev/null || true
+}
+
+sanitize_name() {
+	printf '%s' "$1" | tr '/:<>"\\|?*' '_' | tr -s '[:space:]' '_'
+}
+
 iDIR="$HOME/.config/swaync/icons"
 iDoR="$HOME/.config/swaync/images"
 sDIR="$HOME/.config/niri/scripts"
 
-active_window_class=$(hyprctl -j activewindow | jq -r '(.class)')
+focused_window_json=$(get_focused_window)
+active_window_class=$(printf '%s' "$focused_window_json" | jq -r '.app_id // .title // "window"' 2>/dev/null | head -n1)
+active_window_class=$(sanitize_name "$active_window_class")
 active_window_file="Screenshot_${time}_${active_window_class}.png"
 active_window_path="${dir}/${active_window_file}"
 
@@ -101,9 +115,13 @@ shot10() {
 }
 
 shotwin() {
-	w_pos=$(hyprctl activewindow | grep 'at:' | cut -d':' -f2 | tr -d ' ' | tail -n1)
-	w_size=$(hyprctl activewindow | grep 'size:' | cut -d':' -f2 | tr -d ' ' | tail -n1 | sed s/,/x/g)
-	cd ${dir} && grim -g "$w_pos $w_size" - | tee "$file" | wl-copy
+	focused_output_json=$(get_focused_output)
+	focused_output_name=$(printf '%s' "$focused_output_json" | jq -r '.name // empty' 2>/dev/null)
+	if [[ -n "$focused_output_name" ]]; then
+		cd ${dir} && grim -o "$focused_output_name" - | tee "$file" | wl-copy
+	else
+		cd ${dir} && grim - | tee "$file" | wl-copy
+	fi
 	notify_view
 }
 
@@ -120,13 +138,16 @@ shotarea() {
 }
 
 shotactive() {
-    active_window_class=$(hyprctl -j activewindow | jq -r '(.class)')
-    active_window_file="Screenshot_${time}_${active_window_class}.png"
-    active_window_path="${dir}/${active_window_file}"
+	focused_output_json=$(get_focused_output)
+	focused_output_name=$(printf '%s' "$focused_output_json" | jq -r '.name // empty' 2>/dev/null)
 
-    hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | grim -g - "${active_window_path}"
+	if [[ -n "$focused_output_name" ]]; then
+		grim -o "$focused_output_name" "${active_window_path}"
+	else
+		grim "${active_window_path}"
+	fi
 	sleep 1
-    notify_view "active"
+	notify_view "active"
 }
 
 shotswappy() {

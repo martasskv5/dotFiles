@@ -2,6 +2,11 @@
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # simple bash script to check if update is available by comparing local version and github version
 
+if command -v niri >/dev/null 2>&1; then
+  notify-send -u low "KooL Dots Update" "This updater targets the Hyprland dots repo, not the Niri setup"
+  exit 0
+fi
+
 # Local Paths
 local_dir="$HOME/.config/niri"
 iDIR="$HOME/.config/swaync/images/"

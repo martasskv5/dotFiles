@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  #
-# This file used on waybar modules sourcing defaults set in $HOME/.config/niri/UserConfigs/01-UserDefaults.conf
+# Legacy Waybar helper retained for compatibility.
+# Noctalia does not use these modules, so this is now a no-op.
+
+notify-send -u low "Waybar Helper" "Noctalia manages these shortcuts elsewhere"
+exit 0
 
 # Define the path to the config file
 config_file=$HOME/.config/niri/UserConfigs/01-UserDefaults.conf
@@ -26,7 +30,7 @@ fi
 # Execute accordingly based on the passed argument
 launch_files() {
     if [[ -z "$files" ]]; then
-        notify-send -u low -i "$HOME/.config/swaync/images/error.png" "Waybar: files" "Set \$files in 01-UserDefaults.conf or install a default file manager."
+        notify-send -u low "Waybar: files" "Noctalia manages file manager defaults elsewhere"
         return 1
     fi
     eval "$files &"

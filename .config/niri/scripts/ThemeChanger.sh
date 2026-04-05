@@ -47,7 +47,6 @@ if wallust theme -- "${choice}"; then
   mkdir -p "$HOME/.config/ghostty" || true
 
   targets=(
-    "$HOME/.config/waybar/wallust/colors-waybar.css"
     "$HOME/.config/rofi/wallust/colors-rofi.rasi"
     "$HOME/.config/kitty/kitty-themes/01-Wallust.conf"
     "$HOME/.config/niri/wallust/wallust-hyprland.conf"
@@ -112,20 +111,9 @@ if wallust theme -- "${choice}"; then
     fi
   fi
 
-  # Reload Hyprland so new border colors from wallust-hyprland.conf take effect
-  if command -v hyprctl >/dev/null 2>&1; then
-    hyprctl reload >/dev/null 2>&1 || true
-  fi
-
-  # Refresh bars/menus after files are ready
+  # Refresh Noctalia and the other shell helpers after files are ready
   if [ -x "$HOME/.config/niri/scripts/Refresh.sh" ]; then
     "$HOME/.config/niri/scripts/Refresh.sh" >/dev/null 2>&1 || true
-  else
-    if command -v waybar-msg >/dev/null 2>&1; then
-      waybar-msg cmd reload >/dev/null 2>&1 || true
-    else
-      pkill -SIGUSR2 waybar >/dev/null 2>&1 || true
-    fi
   fi
 
   # Ask kitty to reload its config so the new 01-Wallust.conf is picked up

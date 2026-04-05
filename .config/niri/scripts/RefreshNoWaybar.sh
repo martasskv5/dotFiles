@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 
-# Modified version of Refresh.sh but waybar wont refresh
-# Used by automatic wallpaper change
-# Modified inorder to refresh rofi background, Wallust, SwayNC only
+# Niri/Noctalia compatibility wrapper used by automatic wallpaper change.
 
 SCRIPTSDIR=$HOME/.config/niri/scripts
 UserScripts=$HOME/.config/niri/UserScripts
@@ -28,15 +26,8 @@ done
 # quit ags & relaunch ags
 #ags -q && ags &
 
-# quit quickshell & relaunch quickshell
-pkill qs && qs &
-
-# Wallust refresh (synchronous to ensure colors are ready)
-${SCRIPTSDIR}/WallustSwww.sh
-sleep 0.2
-
-# reload swaync
-swaync-client --reload-config
+# Delegate to the shared refresh flow.
+exec "$HOME/.config/niri/scripts/Refresh.sh"
 
 # Relaunching rainbow borders if the script exists
 sleep 1

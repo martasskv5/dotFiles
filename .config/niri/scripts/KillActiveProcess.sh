@@ -4,8 +4,8 @@
 # Copied from Discord post. Thanks to @Zorg
 
 
-# Get id of an active window
-active_pid=$(hyprctl activewindow | grep -o 'pid: [0-9]*' | cut -d' ' -f2)
+# Get id of the focused window
+active_pid=$(niri msg -j focused-window 2>/dev/null | jq -r '.pid // empty')
 
 if [[ -z "$active_pid" || ! "$active_pid" =~ ^[0-9]+$ ]]; then
   notify-send -u low -i "$HOME/.config/swaync/images/error.png" "Kill Active Window" "No active window PID found."

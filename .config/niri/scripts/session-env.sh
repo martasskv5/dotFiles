@@ -1,18 +1,19 @@
 #!/bin/sh
 
 export DOTS_VERSION="2.3.20"
+export PATH="$HOME/.local/bin:$PATH"
 export GDK_BACKEND="wayland,x11,*"
 export QT_QPA_PLATFORM="wayland;xcb"
 export CLUTTER_BACKEND="wayland"
 
-export XDG_CURRENT_DESKTOP="Hyprland"
-export XDG_SESSION_DESKTOP="Hyprland"
+export XDG_CURRENT_DESKTOP="Niri"
+export XDG_SESSION_DESKTOP="Niri"
 export XDG_SESSION_TYPE="wayland"
 
 export QT_AUTO_SCREEN_SCALE_FACTOR="1"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 export QT_QPA_PLATFORMTHEME="qt6ct"
-export QT_QUICK_CONTROLS_STYLE="org.hyprland.style"
+export QT_QUICK_CONTROLS_STYLE="org.kde.desktop"
 
 export GDK_SCALE="1"
 export QT_SCALE_FACTOR="1"

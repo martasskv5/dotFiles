@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# For manually starting xdg-desktop-portal-hyprland
+# For manually starting the xdg-desktop-portal backend used by the session
 
 set -euo pipefail
 
@@ -28,13 +28,21 @@ kill_quietly xdg-desktop-portal-gnome
 kill_quietly xdg-desktop-portal
 sleep 1
 
-start_portal_binary "xdg-desktop-portal-hyprland" \
-  /usr/lib/xdg-desktop-portal-hyprland \
-  /usr/libexec/xdg-desktop-portal-hyprland
-
-sleep 2
-
-start_portal_binary "xdg-desktop-portal" \
-  /usr/lib/xdg-desktop-portal \
-  /usr/libexec/xdg-desktop-portal
+if command -v niri >/dev/null 2>&1; then
+  start_portal_binary "xdg-desktop-portal-wlr" \
+    /usr/lib/xdg-desktop-portal-wlr \
+    /usr/libexec/xdg-desktop-portal-wlr
+  sleep 1
+  start_portal_binary "xdg-desktop-portal" \
+    /usr/lib/xdg-desktop-portal \
+    /usr/libexec/xdg-desktop-portal
+else
+  start_portal_binary "xdg-desktop-portal-hyprland" \
+    /usr/lib/xdg-desktop-portal-hyprland \
+    /usr/libexec/xdg-desktop-portal-hyprland
+  sleep 2
+  start_portal_binary "xdg-desktop-portal" \
+    /usr/lib/xdg-desktop-portal \
+    /usr/libexec/xdg-desktop-portal
+fi
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# Scripts for refreshing Noctalia (QuickShell), rofi, swaync, wallust
+# Scripts for refreshing Noctalia (QuickShell), rofi, wallust
 
 SCRIPTSDIR=$HOME/.config/niri/scripts
 UserScripts=$HOME/.config/niri/UserScripts
@@ -36,11 +36,11 @@ for pid in $(pidof rofi swaync ags swaybg 2>/dev/null); do
   sleep 0.1
 done
 
-# relaunch swaync
+# relaunch Noctalia shell if the CLI is available
 sleep 0.3
-swaync >/dev/null 2>&1 &
-# reload swaync
-swaync-client --reload-config
+if command -v qs >/dev/null 2>&1; then
+  qs -c noctalia-shell >/dev/null 2>&1 &
+fi
 
 # Relaunching rainbow borders if the script exists
 sleep 1

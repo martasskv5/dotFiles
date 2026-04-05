@@ -8,9 +8,6 @@ PICTURES_DIR="$(xdg-user-dir PICTURES 2>/dev/null || echo "$HOME/Pictures")"
 wallpaper_base_path="$PICTURES_DIR/wallpapers/Dynamic-Wallpapers"
 dark_wallpapers="$wallpaper_base_path/Dark"
 light_wallpapers="$wallpaper_base_path/Light"
-hypr_config_path="$HOME/.config/niri"
-swaync_style="$HOME/.config/swaync/style.css"
-ags_style="$HOME/.config/ags/user/style.css"
 SCRIPTSDIR="$HOME/.config/niri/scripts"
 notif="$HOME/.config/swaync/images/bell.png"
 wallust_rofi="$HOME/.config/wallust/templates/colors-rofi.rasi"
@@ -26,7 +23,7 @@ qt6ct_dark="$HOME/.config/qt6ct/colors/Catppuccin-Mocha.conf"
 qt6ct_light="$HOME/.config/qt6ct/colors/Catppuccin-Latte.conf"
 
 # intial kill process
-for pid in waybar rofi swaync ags swaybg; do
+for pid in rofi swaybg; do
     killall -SIGUSR1 "$pid"
 done
 
@@ -74,48 +71,7 @@ else
     sed -i 's/^palette = .*/palette = "'"$pallete_light"'"/' "$wallust_config" 
 fi
 
-# Function to set Waybar style
-set_waybar_style() {
-    theme="$1"
-    waybar_styles="$HOME/.config/waybar/style"
-    waybar_style_link="$HOME/.config/waybar/style.css"
-    style_prefix="\\[${theme}\\].*\\.css$"
-
-    style_file=$(find -L "$waybar_styles" -maxdepth 1 -type f -regex ".*$style_prefix" | shuf -n 1)
-
-    if [ -n "$style_file" ]; then
-        ln -sf "$style_file" "$waybar_style_link"
-    else
-        echo "Style file not found for $theme theme."
-    fi
-}
-
-# Call the function after determining the mode
-set_waybar_style "$next_mode"
 notify_user "$next_mode"
-
-
-# swaync color change
-if [ "$next_mode" = "Dark" ]; then
-    sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(0, 0, 0, 0.8);/' "${swaync_style}"
-	#sed -i '/@define-color noti-bg-alt/s/#.*;/#111111;/' "${swaync_style}"
-else
-    sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(255, 255, 255, 0.9);/' "${swaync_style}"
-	#sed -i '/@define-color noti-bg-alt/s/#.*;/#F0F0F0;/' "${swaync_style}"
-fi
-
-# ags color change
-if command -v ags >/dev/null 2>&1; then    
-    if [ "$next_mode" = "Dark" ]; then
-        sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(0, 0, 0, 0.4);/' "${ags_style}"
-	    sed -i '/@define-color text-color/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(255, 255, 255, 0.7);/' "${ags_style}" 
-	    sed -i '/@define-color noti-bg-alt/s/#.*;/#111111;/' "${ags_style}"
-    else
-        sed -i '/@define-color noti-bg/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(255, 255, 255, 0.4);/' "${ags_style}"
-        sed -i '/@define-color text-color/s/rgba([0-9]*,\s*[0-9]*,\s*[0-9]*,\s*[0-9.]*);/rgba(0, 0, 0, 0.7);/' "${ags_style}"
-	    sed -i '/@define-color noti-bg-alt/s/#.*;/#F0F0F0;/' "${ags_style}"
-    fi
-fi
 
 # kitty background color change
 if [ "$next_mode" = "Dark" ]; then
@@ -252,7 +208,7 @@ ${SCRIPTSDIR}/WallustSwww.sh &&
 
 sleep 2
 # kill process
-for pid1 in waybar rofi swaync ags swaybg; do
+for pid1 in rofi swaync ags swaybg; do
     killall "$pid1"
 done
 

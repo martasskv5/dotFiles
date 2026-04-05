@@ -43,8 +43,8 @@ layout {
     }
 
     border {
-        on
-        width 2
+        off
+        width 1
         active-color "#7fc8ff"
         inactive-color "#505050"
     }

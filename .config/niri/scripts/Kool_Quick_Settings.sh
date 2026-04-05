@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# Rofi menu for KooL Hyprland Quick Settings (SUPER SHIFT E)
+# Rofi menu for KooL Niri Quick Settings (SUPER SHIFT E)
 # Updated for UserConfigs/configs separation
 
 # Modify this config file for default terminal and EDITOR
@@ -49,9 +49,7 @@ toggle_rainbow_borders() {
         # Currently enabled -> disable to canonical .sh.bak
         if mv "$rainbow_script" "$disabled_sh_bak"; then
             status="disabled"
-            if command -v hyprctl &>/dev/null; then
-                hyprctl reload >/dev/null 2>&1 || true
-            fi
+            "$refresh_script" >/dev/null 2>&1 || true
         fi
     elif [[ -f "$disabled_sh_bak" ]]; then
         # Disabled (.sh.bak) -> enable
@@ -119,9 +117,7 @@ rainbow_borders_menu() {
                 mv "$rainbow_script" "$disabled_sh_bak"
             fi
             current="disabled"
-            if command -v hyprctl &>/dev/null; then
-                hyprctl reload >/dev/null 2>&1 || true
-            fi
+            "$refresh_script" >/dev/null 2>&1 || true
             ;;
         "Wallust Color"|"Original Rainbow"|"Gradient Flow")
             local mode=""
@@ -198,7 +194,7 @@ Configure Workspace Rules (nwg-displays)
 GTK Settings (nwg-look)
 QT Apps Settings (qt6ct)
 QT Apps Settings (qt5ct)
-Choose Hyprland Animations
+Choose Niri Animations
 Choose Monitor Profiles
 Choose Rofi Themes
 Search for Keybinds
@@ -221,7 +217,7 @@ main() {
         "Edit User Window Rules (overlay)") file="$UserConfigs/WindowRules.conf" ;;
         "Edit User Settings") file="$configs/SystemSettings.conf"; show_info "Editing default settings. Copy to UserConfigs/UserSettings.conf to override." ;;
         "Edit User Decorations") file="$UserConfigs/UserDecorations.conf" ;;
-        "Edit User Animations") file="$UserConfigs/UserAnimations.conf" ;;
+        "Edit User Animations") file="$UserConfigs/Animations.kdl" ;;
         "Edit User Laptop Settings") file="$UserConfigs/Laptops.conf" ;;
         "Edit System Default Keybinds") file="$configs/Keybinds.conf" ;;
         "Edit System Default Startup Apps") file="$configs/Startup_Apps.conf" ;;
@@ -259,7 +255,7 @@ main() {
                 exit 1
             fi
             qt5ct ;;
-        "Choose Hyprland Animations") $scriptsDir/Animations.sh ;;
+        "Choose Niri Animations") $scriptsDir/Animations.sh ;;
         "Choose Monitor Profiles") $scriptsDir/MonitorProfiles.sh ;;
         "Choose Rofi Themes") $scriptsDir/RofiThemeSelector.sh ;;
         "Search for Keybinds") $scriptsDir/KeyBinds.sh ;;

@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # Script to update WindowRules config if Hyprland version is >= 0.53
 
+if command -v niri >/dev/null 2>&1; then
+  echo "Niri does not use this Hyprland window-rules updater."
+  exit 0
+fi
+
 CONFIGS_DIR="$HOME/.config/niri/configs"
 TARGET_FILE="$CONFIGS_DIR/WindowRules.conf"
 V3_FILE="$CONFIGS_DIR/WindowRules-config-v3.conf"

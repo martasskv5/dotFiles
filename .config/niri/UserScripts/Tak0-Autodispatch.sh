@@ -15,6 +15,11 @@
 # - Script waits about ~9 seconds (30 iterations of 0.3 sec) for window to appear.
 # - Uses hyprctl and jq, so these tools must be installed.
 
+if command -v niri >/dev/null 2>&1; then
+  notify-send -u low "Autodispatch" "This Hyprland helper is not available on Niri"
+  exit 0
+fi
+
 LOGFILE="$(dirname "$0")/dispatch.log"
 # Log file path located next to the script.
 

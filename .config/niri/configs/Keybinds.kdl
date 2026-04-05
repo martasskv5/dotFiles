@@ -124,7 +124,7 @@ binds {
     // Screenshots
     Print { screenshot; }
     Mod+Print { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --now"; }
-    Mod+Shift+Print { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --area"; }
+    Mod+Shift+S { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --area"; }
     Mod+Ctrl+Print { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --in5"; }
     Alt+Print { screenshot-window; }
 

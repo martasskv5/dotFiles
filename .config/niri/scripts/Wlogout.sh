@@ -22,8 +22,13 @@ if pgrep -x "wlogout" > /dev/null; then
 fi
 
 # Detect monitor resolution and scaling factor
-resolution=$(hyprctl -j monitors | jq -r '.[] | select(.focused==true) | .height / .scale' | awk -F'.' '{print $1}')
-hypr_scale=$(hyprctl -j monitors | jq -r '.[] | select(.focused==true) | .scale')
+if command -v niri >/dev/null 2>&1; then
+    resolution=$(niri msg -j focused-output | jq -r '.logical.height / .logical.scale' | awk -F'.' '{print $1}')
+    hypr_scale=$(niri msg -j focused-output | jq -r '.logical.scale')
+else
+    resolution=$(hyprctl -j monitors | jq -r '.[] | select(.focused==true) | .height / .scale' | awk -F'.' '{print $1}')
+    hypr_scale=$(hyprctl -j monitors | jq -r '.[] | select(.focused==true) | .scale')
+fi
 
 # Set parameters based on screen resolution and scaling factor
 if ((resolution >= 2160)); then

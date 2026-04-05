@@ -11,7 +11,7 @@ NVIDIA_POWER_CONTROL="/sys/bus/pci/devices/${NVIDIA_PCI_DEV}/power/control"
 NVIDIA_RUNTIME_STATUS="/sys/bus/pci/devices/${NVIDIA_PCI_DEV}/power/runtime_status"
 
 # Never kill these automatically
-PROTECTED_NAMES_REGEX='^(Hyprland|Xorg|Xwayland|sddm|sddm-helper|systemd|systemd-logind|dbus-daemon|pipewire|wireplumber)$'
+PROTECTED_NAMES_REGEX='^(Hyprland|Niri|Xorg|Xwayland|sddm|sddm-helper|systemd|systemd-logind|dbus-daemon|pipewire|wireplumber)$'
 
 # If true, battery mode will also stop nvidia-powerd (can help suspend)
 KILL_NVIDIA_POWERD_ON_BATTERY=true
@@ -24,7 +24,6 @@ get_hyprland_env() {
   local hypr_pid
   hypr_pid="$(pgrep -x Hyprland | head -1 || true)"
   if [[ -z "${hypr_pid}" ]]; then
-    log "ERROR: Hyprland not running"
     return 1
   fi
   # shellcheck disable=SC2046
@@ -195,7 +194,7 @@ apply_battery_mode() {
   # Stop notifications temporarily
   pkill -USR1 -x swaync 2>/dev/null || true
 
-  # Set power profile FIRST (before Hyprland changes)
+  # Set power profile FIRST (before compositor-specific changes)
   if command -v asusctl &>/dev/null; then
     set_asus_profile "$BAT_PROFILE"
   else
@@ -396,11 +395,6 @@ main() {
   log "=========================================="
   log "Power Management Script Started"
   log "Arguments: $*"
-
-  if ! pgrep -x Hyprland >/dev/null; then
-    log "ERROR: Hyprland is not running!"
-    exit 1
-  fi
 
   case "${1:-auto}" in
     battery|bat) apply_battery_mode ;;

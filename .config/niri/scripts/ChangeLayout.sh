@@ -1,39 +1,12 @@
 #!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# for changing Hyprland Layouts (Master or Dwindle) on the fly
+# Niri uses columns instead of Hyprland master/dwindle layouts.
 
 notif="$HOME/.config/swaync/images/ja.png"
 
-LAYOUT=$(hyprctl -j getoption general:layout | jq '.str' | sed 's/"//g')
-
-# Reverse layout value to reuse toggle logic. So layouts don't get swapped initially.
-if [ "$1" = "init" ]; then
-  if [ "$LAYOUT" = "master" ]; then
-    LAYOUT="dwindle"
-  else
-    LAYOUT="master"
-  fi
+if command -v niri >/dev/null 2>&1; then
+  niri msg action toggle-column-tabbed-display >/dev/null 2>&1 || true
+  notify-send -e -u low -i "$notif" " Layout" " Toggled column tabbed display"
+else
+  notify-send -e -u low -i "$notif" " Layout" " Niri layout toggle unavailable"
 fi
-
-case $LAYOUT in
-"master")
-  hyprctl keyword general:layout dwindle
-  hyprctl keyword unbind SUPER,J
-  hyprctl keyword unbind SUPER,K
-  hyprctl keyword bind SUPER,J,cyclenext
-  hyprctl keyword bind SUPER,K,cyclenext,prev
-  hyprctl keyword bind SUPER,O,togglesplit
-  notify-send -e -u low -i "$notif" " Dwindle Layout"
-  ;;
-"dwindle")
-  hyprctl keyword general:layout master
-  hyprctl keyword unbind SUPER,J
-  hyprctl keyword unbind SUPER,K
-  hyprctl keyword unbind SUPER,O
-  hyprctl keyword bind SUPER,J,layoutmsg,cyclenext
-  hyprctl keyword bind SUPER,K,layoutmsg,cycleprev
-  notify-send -e -u low -i "$notif" " Master Layout"
-  ;;
-*) ;;
-
-esac

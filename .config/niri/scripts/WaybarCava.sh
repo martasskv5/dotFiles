@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
-# WaybarCava.sh — safer single-instance handling, cleanup, and robustness
-# Original concept by JaKooLit; this variant focuses on lifecycle hardening.
+# WaybarCava.sh — legacy Waybar visualizer helper.
+# Noctalia does not use it, so this is now a compatibility stub.
+
+if command -v niri >/dev/null 2>&1; then
+  notify-send -u low "Waybar Cava" "Noctalia does not use Waybar cava widgets"
+  exit 0
+fi
 
 set -euo pipefail
 

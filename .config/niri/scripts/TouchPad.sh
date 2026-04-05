@@ -2,8 +2,7 @@
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # For disabling touchpad.
 # Edit the Touchpad_Device on ~/.config/niri/UserConfigs/Laptops.conf according to your system
-# use hyprctl devices to get your system touchpad device name
-# source https://github.com/hyprwm/Hyprland/discussions/4283?sort=new#discussioncomment-8648109
+# Touchpad toggling is compositor-specific; Niri does not expose a direct runtime toggle.
 
 set -euo pipefail
 
@@ -33,13 +32,17 @@ status_file="${XDG_RUNTIME_DIR:-/tmp}/touchpad.status"
 enable_touchpad() {
     printf "true" >"$status_file"
     notify-send -u low -i "$notif" " Enabling" " touchpad"
-    hyprctl keyword "$touchpad_keyword" true -r
+    if command -v hyprctl >/dev/null 2>&1; then
+        hyprctl keyword "$touchpad_keyword" true -r
+    fi
 }
 
 disable_touchpad() {
     printf "false" >"$status_file"
     notify-send -u low -i "$notif" " Disabling" " touchpad"
-    hyprctl keyword "$touchpad_keyword" false -r
+    if command -v hyprctl >/dev/null 2>&1; then
+        hyprctl keyword "$touchpad_keyword" false -r
+    fi
 }
 
 current_state="false"

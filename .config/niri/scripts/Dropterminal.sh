@@ -32,6 +32,11 @@ fi
 
 TERMINAL_CMD="$1"
 
+if command -v niri >/dev/null 2>&1; then
+  nohup bash -lc "$TERMINAL_CMD" >/dev/null 2>&1 &
+  exit 0
+fi
+
 # Debug echo function
 debug_echo() {
   if [ "$DEBUG" = true ]; then

@@ -25,7 +25,7 @@ GDK_BACKEND=$BACKEND yad \
     --timeout-indicator=bottom \
 "ESC" "close this app" "" " = " "SUPER KEY (Windows Key Button)" "(SUPER KEY)" \
 " SHIFT K" "Searchable Keybinds" "(Search all Keybinds via rofi)" \
-" SHIFT E" "KooL Hyprland Settings Menu" "" \
+" SHIFT E" "KooL Niri Settings Menu" "" \
 "" "" "" \
 " enter" "Terminal" "(kitty)" \
 " SHIFT enter" "DropDown Terminal" " Q to close" \
@@ -42,11 +42,11 @@ GDK_BACKEND=$BACKEND yad \
 " W" "Choose wallpaper" "(Wallpaper Menu)" \
 " Shift W" "Choose wallpaper effects" "(imagemagick + awww)" \
 "CTRL ALT W" "Random wallpaper" "(via awww)" \
-" CTRL ALT B" "Hide/UnHide Waybar" "waybar" \
-" CTRL B" "Choose waybar styles" "(waybar styles)" \
-" ALT B" "Choose waybar layout" "(waybar layout)" \
-" ALT R" "Reload Waybar swaync Rofi" "CHECK NOTIFICATION FIRST!!!" \
-" SHIFT N" "Launch Notification Panel" "swaync Notification Center" \
+" CTRL ALT B" "Noctalia bar" "managed in shell settings" \
+" CTRL B" "Choose bar style" "Noctalia settings" \
+" ALT B" "Choose bar layout" "Noctalia settings" \
+" ALT R" "Refresh shell" "Noctalia / rofi / wallust" \
+" SHIFT N" "Launch Notification Panel" "Noctalia notifications" \
 " Print" "screenshot" "(grim)" \
 " Shift Print" "screenshot region" "(grim + slurp)" \
 " Shift S" "screenshot region" "(swappy)" \
@@ -55,10 +55,10 @@ GDK_BACKEND=$BACKEND yad \
 "ALT Print" "Screenshot active window" "active window only" \
 "CTRL ALT P" "power-menu" "(wlogout)" \
 " L" "screen lock" "(hyprlock)" \
-"CTRL ALT Del" "Hyprland Exit" "(NOTE: Hyprland Will exit immediately)" \
+"CTRL ALT Del" "Exit Niri" "(NOTE: this closes the session)" \
 " SHIFT F" "Fullscreen" "Toggles to full screen" \
 " CTL F" "Fake Fullscreen" "Toggles to fake full screen" \
-" ALT L" "Toggle Dwindle | Master Layout" "Hyprland Layout" \
+" ALT L" "Toggle column display" "Niri layout" \
 " SPACEBAR" "Toggle float" "single window" \
 " ALT SPACEBAR" "Toggle all windows to float" "all windows" \
 " ALT O" "Toggle Blur" "normal or less blur" \

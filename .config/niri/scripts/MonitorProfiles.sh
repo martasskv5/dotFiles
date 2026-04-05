@@ -39,4 +39,4 @@ if [[ -n "$chosen_file" ]]; then
 fi
 
 sleep 1
-${SCRIPTSDIR}/RefreshNoWaybar.sh &
+${SCRIPTSDIR}/Refresh.sh &

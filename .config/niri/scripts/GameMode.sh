@@ -1,35 +1,21 @@
 #!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# Game Mode. Turning off all animations
+# Game Mode. Turning off shell effects that still apply in Niri.
 
 notif="$HOME/.config/swaync/images/ja.png"
 SCRIPTSDIR="$HOME/.config/niri/scripts"
 
 
-HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
-if [ "$HYPRGAMEMODE" = 1 ] ; then
-    hyprctl --batch "\
-        keyword animations:enabled 0;\
-        keyword decoration:shadow:enabled 0;\
-        keyword decoration:blur:enabled 0;\
-        keyword general:gaps_in 0;\
-        keyword general:gaps_out 0;\
-        keyword general:border_size 1;\
-        keyword decoration:rounding 0"
+STATE_FILE="$HOME/.cache/.gamemode_state"
+state="off"
+[[ -f "$STATE_FILE" ]] && state="$(cat "$STATE_FILE" 2>/dev/null || echo off)"
 
-    hyprctl keyword "windowrule opacity 1 override 1 override 1 override, ^(.*)$"
-    awww kill 
-    notify-send -e -u low -i "$notif" " Gamemode:" " enabled"
-    sleep 0.1
-    exit
+if [[ "$state" == "on" ]]; then
+    echo off > "$STATE_FILE"
+    ${SCRIPTSDIR}/Refresh.sh
+    notify-send -e -u low -i "$notif" " Gamemode:" " disabled"
 else
-    awww-daemon --format xrgb && awww img "$HOME/.config/rofi/.current_wallpaper" &
-	sleep 0.1
-	${SCRIPTSDIR}/WallustSwww.sh
-	sleep 0.5
-  hyprctl reload
-	${SCRIPTSDIR}/Refresh.sh	 
-    notify-send -e -u normal -i "$notif" " Gamemode:" " disabled"
-    exit
+    echo on > "$STATE_FILE"
+    awww kill
+    notify-send -e -u low -i "$notif" " Gamemode:" " enabled"
 fi
-hyprctl reload
