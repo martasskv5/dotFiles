@@ -107,7 +107,7 @@ input {
 
 hotkey-overlay {
     hide-not-bound
-    // skip-at-startup
+    skip-at-startup
     }
 
 gestures {

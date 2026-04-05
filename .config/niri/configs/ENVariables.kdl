@@ -2,4 +2,35 @@
 // Niri cannot declare process environment variables directly in KDL.
 // We apply the same values through a startup helper script.
 
-spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/session-env.sh"
+environment {
+    DOTS_VERSION "1.0.0"
+    GDK_BACKEND "wayland,x11,*"
+    CLUTTER_BACKEND "wayland"
+
+    XDG_CURRENT_DESKTOP "Niri"
+    XDG_SESSION_DESKTOP "Niri"
+    XDG_SESSION_TYPE "wayland"
+
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+    QT_SCALE_FACTOR "1"
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_QUICK_CONTROLS_STYLE "org.kde.desktop"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+
+    GDK_SCALE "1"
+
+    HYPRCURSOR_THEME "Bibata-Modern-Ice"
+    HYPRCURSOR_SIZE "24"
+
+    MOZ_ENABLE_WAYLAND "1"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    AQ_NO_ATOMIC "1"
+
+    SSH_ASKPASS "/usr/bin/ksshaskpass"
+    SSH_ASKPASS_REQUIRE "prefer"
+    SSH_AUTH_SOCK "/tmp/ssh-agent-martinko.sock"
+
+    __GLX_VENDOR_LIBRARY_NAME "nvidia"
+    LIBVA_DRIVER_NAME "nvidia"
+}

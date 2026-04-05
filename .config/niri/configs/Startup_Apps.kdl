@@ -15,7 +15,7 @@ spawn-at-startup "qs" "-c" "overview"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
-spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/Dropterminal.sh kitty"
+// spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/Dropterminal.sh kitty"
 spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/Polkit.sh"
 spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/Hyprsunset.sh init"
 spawn-at-startup "sh" "-c" "$HOME/.config/niri/scripts/KeybindsLayoutInit.sh"
