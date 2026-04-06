@@ -2,137 +2,142 @@
 // Priority: keep familiar shortcuts and route unsupported features through your existing scripts.
 
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+Slash hotkey-overlay-title="Show keybind overlay" { show-hotkey-overlay; }
 
     // App launchers
-    Mod+D { spawn-sh "pkill rofi || true && rofi -show drun -modi drun,filebrowser,run,window"; }
-    Mod+Return { spawn "kitty"; }
-    Mod+E { spawn "thunar"; }
-    Mod+B { spawn "xdg-open" "https://"; }
+    Mod+D hotkey-overlay-title="Launcher" { spawn-sh "pkill rofi || true && rofi -show drun -modi drun,filebrowser,run,window"; }
+    Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
+    Mod+E hotkey-overlay-title="File manager" { spawn "thunar"; }
+    Mod+B hotkey-overlay-title="Open browser" { spawn "xdg-open" "https://"; }
 
     // Hypr script integrations
-    Mod+A { spawn-sh "$HOME/.config/niri/scripts/OverviewToggle.sh"; }
-    Mod+H { spawn-sh "$HOME/.config/niri/scripts/KeyHints.sh"; }
-    Mod+T { spawn-sh "$HOME/.config/niri/scripts/ThemeChanger.sh"; }
-    Mod+Shift+Return { spawn-sh "$HOME/.config/niri/scripts/Dropterminal.sh kitty"; }
-    Mod+V { spawn-sh "$HOME/.config/niri/scripts/ClipManager.sh"; }
-    Mod+Alt+E { spawn-sh "$HOME/.config/niri/scripts/RofiEmoji.sh"; }
-    Mod+S { spawn-sh "$HOME/.config/niri/scripts/RofiSearch.sh"; }
-    Mod+Ctrl+S { spawn-sh "rofi -show window"; }
-    Mod+Shift+K { spawn-sh "$HOME/.config/niri/scripts/KeyBinds.sh"; }
-    Mod+Alt+R { spawn-sh "$HOME/.config/niri/scripts/Refresh.sh"; }
-    Mod+Alt+O { spawn-sh "$HOME/.config/niri/scripts/ChangeBlur.sh"; }
-    Mod+Shift+G { spawn-sh "$HOME/.config/niri/scripts/GameMode.sh"; }
+    Mod+A hotkey-overlay-title="Toggle overview" { spawn-sh "$HOME/.config/niri/scripts/OverviewToggle.sh"; }
+    Mod+H hotkey-overlay-title="Key hints" { spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; } // Depends on noctalia keybind cheatsheet plugin, can be replaced with KeyHints.sh script
+    Mod+T hotkey-overlay-title="Change theme" { spawn-sh "$HOME/.config/niri/scripts/ThemeChanger.sh"; }
+    Mod+Shift+Return hotkey-overlay-title="Drop terminal" { spawn-sh "$HOME/.config/niri/scripts/Dropterminal.sh kitty"; }
+    Mod+V hotkey-overlay-title="Clipboard manager" { spawn-sh "$HOME/.config/niri/scripts/ClipManager.sh"; }
+    Mod+Alt+E hotkey-overlay-title="Emoji picker" { spawn-sh "$HOME/.config/niri/scripts/RofiEmoji.sh"; }
+    Mod+S hotkey-overlay-title="Search" { spawn-sh "$HOME/.config/niri/scripts/RofiSearch.sh"; }
+    Mod+Ctrl+S hotkey-overlay-title="Window switcher" { spawn-sh "rofi -show window"; }
+    Mod+Shift+K hotkey-overlay-title="Show keybind list" { spawn-sh "$HOME/.config/niri/scripts/KeyBinds.sh"; }
+    Mod+Alt+R hotkey-overlay-title="Refresh session" { spawn-sh "$HOME/.config/niri/scripts/Refresh.sh"; }
+    Mod+Alt+O hotkey-overlay-title="Change blur" { spawn-sh "$HOME/.config/niri/scripts/ChangeBlur.sh"; }
+    Mod+Shift+G hotkey-overlay-title="Toggle game mode" { spawn-sh "$HOME/.config/niri/scripts/GameMode.sh"; }
     // Mod+Alt+L { spawn-sh "$HOME/.config/niri/scripts/ChangeLayout.sh"; }
     // Mod+Ctrl+B { spawn-sh "$HOME/.config/niri/scripts/WaybarStyles.sh"; }
     // Mod+Alt+B { spawn-sh "$HOME/.config/niri/scripts/WaybarLayout.sh"; }
     // Mod+Ctrl+Alt+B { spawn-sh "pkill -SIGUSR1 waybar"; }
-    Mod+N { spawn-sh "$HOME/.config/niri/scripts/Hyprsunset.sh toggle"; }
-    Mod+Shift+A { spawn-sh "$HOME/.config/niri/scripts/Animations.sh"; }
-    Mod+Alt+C { spawn-sh "$HOME/.config/niri/UserScripts/RofiCalc.sh"; }
-    Mod+Ctrl+R { spawn-sh "$HOME/.config/niri/scripts/RofiThemeSelector.sh"; }
-    Mod+Ctrl+Shift+R { spawn-sh "pkill rofi || true && $HOME/.config/niri/scripts/RofiThemeSelector-modified.sh"; }
-    Mod+W { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperSelect.sh"; }
-    Mod+Shift+W { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperEffects.sh"; }
-    Ctrl+Alt+W { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperRandom.sh"; }
+    Mod+N hotkey-overlay-title="Toggle night light" { spawn-sh "$HOME/.config/niri/scripts/Hyprsunset.sh toggle"; }
+    Mod+Shift+A hotkey-overlay-title="Animation picker" { spawn-sh "$HOME/.config/niri/scripts/Animations.sh"; }
+    Mod+Alt+C hotkey-overlay-title="Calculator" { spawn-sh "$HOME/.config/niri/UserScripts/RofiCalc.sh"; }
+    Mod+Ctrl+R hotkey-overlay-title="Theme selector" { spawn-sh "$HOME/.config/niri/scripts/RofiThemeSelector.sh"; }
+    Mod+Ctrl+Shift+R hotkey-overlay-title="Theme selector+" { spawn-sh "pkill rofi || true && $HOME/.config/niri/scripts/RofiThemeSelector-modified.sh"; }
+    Mod+W hotkey-overlay-title="Select wallpaper" { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperSelect.sh"; }
+    Mod+Shift+W hotkey-overlay-title="Wallpaper effects" { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperEffects.sh"; }
+    Ctrl+Alt+W hotkey-overlay-title="Random wallpaper" { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperRandom.sh"; }
 
     // Session / system
-    Mod+Q repeat=false { close-window; }
-    Mod+Shift+Q { spawn-sh "$HOME/.config/niri/scripts/KillActiveProcess.sh"; }
+    Mod+Q repeat=false hotkey-overlay-title="Close window" { close-window; }
+    Mod+Shift+Q hotkey-overlay-title="Kill active process" { spawn-sh "$HOME/.config/niri/scripts/KillActiveProcess.sh"; }
     // Mod+L { spawn-sh "$HOME/.config/niri/scripts/LockScreen.sh"; }
-    Mod+L { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Ctrl+Alt+Delete { quit; }
-    Mod+Shift+N { spawn-sh "swaync-client -t -sw"; }
-    Mod+Shift+E { spawn-sh "$HOME/.config/niri/scripts/Kool_Quick_Settings.sh"; }
-    Ctrl+Alt+P { spawn-sh "$HOME/.config/niri/scripts/Wlogout.sh"; }
-    Mod+Shift+P { power-off-monitors; }
+    Mod+L hotkey-overlay-title="Lock screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Ctrl+Alt+Delete hotkey-overlay-title="Quit niri" { quit; }
+    Mod+Shift+N hotkey-overlay-title="Notifications" { spawn-sh "swaync-client -t -sw"; }
+    Mod+Shift+E hotkey-overlay-title="Quick settings" { spawn-sh "$HOME/.config/niri/scripts/Kool_Quick_Settings.sh"; }
+    Ctrl+Alt+P hotkey-overlay-title="Power menu" { spawn-sh "$HOME/.config/niri/scripts/Wlogout.sh"; }
+    Mod+Shift+P hotkey-overlay-title="Power off monitors" { power-off-monitors; }
 
     // Layout and window controls
-    Mod+Shift+F { fullscreen-window; }
-    Mod+Ctrl+F { maximize-column; }
-    Mod+Alt+Space { toggle-window-floating; }
-    Mod+Alt+W { toggle-column-tabbed-display; }
-    Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+Alt+R { reset-window-height; }
+    Mod+Shift+F hotkey-overlay-title="Toggle fullscreen" { fullscreen-window; }
+    Mod+Ctrl+F hotkey-overlay-title="Maximize column" { maximize-column; }
+    Mod+Alt+Space hotkey-overlay-title="Toggle floating" { toggle-window-floating; }
+    Mod+Alt+W hotkey-overlay-title="Toggle tabbed display" { toggle-column-tabbed-display; }
+    Mod+R hotkey-overlay-title="Cycle column width" { switch-preset-column-width; }
+    Mod+Shift+R hotkey-overlay-title="Cycle window height" { switch-preset-window-height; }
+    Mod+Ctrl+Alt+R hotkey-overlay-title="Reset window height" { reset-window-height; }
 
     // Focus movement + Windows-like snap/move on horizontal arrows.
-    Mod+Left  { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh left"; }
-    Mod+Right { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh right"; }
-    Mod+Up    { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh up"; }
-    Mod+Down  { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh down"; }
-    Mod+Alt+Left  { focus-column-left; }
-    Mod+Alt+Right { focus-column-right; }
-    Mod+Alt+Up    { focus-window-up; }
-    Mod+Alt+Down  { focus-window-down; }
+    Mod+Left hotkey-overlay-title="Snap/move left" { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh left"; }
+    Mod+Right hotkey-overlay-title="Snap/move right" { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh right"; }
+    Mod+Up hotkey-overlay-title="Snap/move up" { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh up"; }
+    Mod+Down hotkey-overlay-title="Snap/move down" { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh down"; }
+    Mod+Alt+Left hotkey-overlay-title="Focus column left" { focus-column-left; }
+    Mod+Alt+Right hotkey-overlay-title="Focus column right" { focus-column-right; }
+    Mod+Alt+Up hotkey-overlay-title="Focus window up" { focus-window-up; }
+    Mod+Alt+Down hotkey-overlay-title="Focus window down" { focus-window-down; }
 
     // Move windows / columns
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Left hotkey-overlay-title="Move column left" { move-column-left; }
+    Mod+Ctrl+Right hotkey-overlay-title="Move column right" { move-column-right; }
+    Mod+Ctrl+Up hotkey-overlay-title="Move window up" { move-window-up; }
+    Mod+Ctrl+Down hotkey-overlay-title="Move window down" { move-window-down; }
 
     // Monitor navigation and moving columns to monitor
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Down  { focus-monitor-down; }
+    Mod+Shift+Left hotkey-overlay-title="Focus monitor left" { focus-monitor-left; }
+    Mod+Shift+Right hotkey-overlay-title="Focus monitor right" { focus-monitor-right; }
+    Mod+Shift+Up hotkey-overlay-title="Focus monitor up" { focus-monitor-up; }
+    Mod+Shift+Down hotkey-overlay-title="Focus monitor down" { focus-monitor-down; }
 
-    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Left hotkey-overlay-title="Send column to left monitor" { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Right hotkey-overlay-title="Send column to right monitor" { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+Up hotkey-overlay-title="Send column to upper monitor" { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Down hotkey-overlay-title="Send column to lower monitor" { move-column-to-monitor-down; }
 
     // Workspaces
-    Mod+Tab { focus-workspace-down; }
-    Mod+Shift+Tab { focus-workspace-up; }
-    Mod+Space { switch-layout "next"; }
+    Mod+Tab hotkey-overlay-title="Next workspace" { focus-workspace-down; }
+    Mod+Shift+Tab hotkey-overlay-title="Previous workspace" { focus-workspace-up; }
+    Mod+Space hotkey-overlay-title="Next layout" { switch-layout "next"; }
 
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+0 { focus-workspace 10; }
+    Mod+1 hotkey-overlay-title="Workspace 1" { focus-workspace 1; }
+    Mod+2 hotkey-overlay-title="Workspace 2" { focus-workspace 2; }
+    Mod+3 hotkey-overlay-title="Workspace 3" { focus-workspace 3; }
+    Mod+4 hotkey-overlay-title="Workspace 4" { focus-workspace 4; }
+    Mod+5 hotkey-overlay-title="Workspace 5" { focus-workspace 5; }
+    Mod+6 hotkey-overlay-title="Workspace 6" { focus-workspace 6; }
+    Mod+7 hotkey-overlay-title="Workspace 7" { focus-workspace 7; }
+    Mod+8 hotkey-overlay-title="Workspace 8" { focus-workspace 8; }
+    Mod+9 hotkey-overlay-title="Workspace 9" { focus-workspace 9; }
+    Mod+0 hotkey-overlay-title="Workspace 10" { focus-workspace 10; }
 
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
-    Mod+Shift+6 { move-column-to-workspace 6; }
-    Mod+Shift+7 { move-column-to-workspace 7; }
-    Mod+Shift+8 { move-column-to-workspace 8; }
-    Mod+Shift+9 { move-column-to-workspace 9; }
-    Mod+Shift+0 { move-column-to-workspace 10; }
+    Mod+Shift+1 hotkey-overlay-title="Send to workspace 1" { move-column-to-workspace 1; }
+    Mod+Shift+2 hotkey-overlay-title="Send to workspace 2" { move-column-to-workspace 2; }
+    Mod+Shift+3 hotkey-overlay-title="Send to workspace 3" { move-column-to-workspace 3; }
+    Mod+Shift+4 hotkey-overlay-title="Send to workspace 4" { move-column-to-workspace 4; }
+    Mod+Shift+5 hotkey-overlay-title="Send to workspace 5" { move-column-to-workspace 5; }
+    Mod+Shift+6 hotkey-overlay-title="Send to workspace 6" { move-column-to-workspace 6; }
+    Mod+Shift+7 hotkey-overlay-title="Send to workspace 7" { move-column-to-workspace 7; }
+    Mod+Shift+8 hotkey-overlay-title="Send to workspace 8" { move-column-to-workspace 8; }
+    Mod+Shift+9 hotkey-overlay-title="Send to workspace 9" { move-column-to-workspace 9; }
+    Mod+Shift+0 hotkey-overlay-title="Send to workspace 10" { move-column-to-workspace 10; }
 
     // Media and hardware keys
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --inc"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --dec"; }
-    XF86AudioMute allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle"; }
-    XF86AudioMicMute allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle-mic"; }
+    XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title="Volume up" { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --inc"; }
+    XF86AudioLowerVolume allow-when-locked=true hotkey-overlay-title="Volume down" { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --dec"; }
+    XF86AudioMute allow-when-locked=true hotkey-overlay-title="Toggle mute" { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle"; }
+    XF86AudioMicMute allow-when-locked=true hotkey-overlay-title="Toggle mic mute" { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle-mic"; }
 
-    XF86AudioPlay allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --pause"; }
-    XF86AudioPause allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --pause"; }
-    XF86AudioNext allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --nxt"; }
-    XF86AudioPrev allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --prv"; }
-    XF86AudioStop allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --stop"; }
+    XF86AudioPlay allow-when-locked=true hotkey-overlay-title="Play/pause media" { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --pause"; }
+    XF86AudioPause allow-when-locked=true hotkey-overlay-title="Play/pause media" { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --pause"; }
+    XF86AudioNext allow-when-locked=true hotkey-overlay-title="Next track" { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --nxt"; }
+    XF86AudioPrev allow-when-locked=true hotkey-overlay-title="Previous track" { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --prv"; }
+    XF86AudioStop allow-when-locked=true hotkey-overlay-title="Stop media" { spawn-sh "$HOME/.config/niri/scripts/MediaCtrl.sh --stop"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Brightness.sh --inc"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Brightness.sh --dec"; }
+    XF86MonBrightnessUp allow-when-locked=true hotkey-overlay-title="Brightness up" { spawn-sh "$HOME/.config/niri/scripts/Brightness.sh --inc"; }
+    XF86MonBrightnessDown allow-when-locked=true hotkey-overlay-title="Brightness down" { spawn-sh "$HOME/.config/niri/scripts/Brightness.sh --dec"; }
 
     // Screenshots
-    Print { screenshot; }
-    Mod+Print { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --now"; }
-    Mod+Shift+S { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --area"; }
-    Mod+Ctrl+Print { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --in5"; }
-    Alt+Print { screenshot-window; }
+    Print hotkey-overlay-title="Screenshot" { screenshot; }
+    Mod+Print hotkey-overlay-title="Screenshot now" { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --now"; }
+    Mod+Shift+S hotkey-overlay-title="Screenshot area" { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --area"; }
+    Mod+Ctrl+Print hotkey-overlay-title="Screenshot in 5s" { spawn-sh "$HOME/.config/niri/scripts/ScreenShot.sh --in5"; }
+    Alt+Print hotkey-overlay-title="Screenshot window" { screenshot-window; }
 
     // Mouse wheel workspace cycling
-    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollDown cooldown-ms=150 hotkey-overlay-title="Next workspace" { focus-workspace-down; }
+    Mod+WheelScrollUp cooldown-ms=150 hotkey-overlay-title="Previous workspace" { focus-workspace-up; }
+
+    // Dynamic screencast toggling (useful for games or exclusive fullscreen apps)
+    Mod+Alt+S hotkey-overlay-title="Cast focused window" {
+        spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg -j focused-window | jq .id)";
+    }
 }

@@ -48,3 +48,10 @@ overview {
 //     xcursor-theme "Moga-Neon-PurpleBright"
 //     xcursor-size 8
 // }
+
+// Block out mako notifications from screencasts.
+layer-rule {
+    match namespace="^notifications$"
+
+    block-out-from "screencast"
+}
