@@ -7,8 +7,8 @@ environment {
     GDK_BACKEND "wayland,x11,*"
     CLUTTER_BACKEND "wayland"
 
-    XDG_CURRENT_DESKTOP "Niri"
-    XDG_SESSION_DESKTOP "Niri"
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
 
     QT_AUTO_SCREEN_SCALE_FACTOR "1"
@@ -34,3 +34,5 @@ environment {
     __GLX_VENDOR_LIBRARY_NAME "nvidia"
     LIBVA_DRIVER_NAME "nvidia"
 }
+
+spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"

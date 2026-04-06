@@ -148,6 +148,20 @@
                     "usePadding": false
                 },
                 {
+                    "defaultSettings": {
+                        "debug": false,
+                        "rogcc": {
+                            "listenToNotifications": false
+                        },
+                        "supergfxctl": {
+                            "patchPending": true,
+                            "polling": false,
+                            "pollingInterval": 3000
+                        }
+                    },
+                    "id": "plugin:noctalia-supergfxctl"
+                },
+                {
                     "colorizeIcons": false,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
@@ -187,6 +201,15 @@
                     "pinned": [
                         "ssh-key-manager"
                     ]
+                },
+                {
+                    "defaultSettings": {
+                        "sessionsFile": "~/.pageant-tray-v2-sessions.json",
+                        "showNotifications": true,
+                        "socketPath": "",
+                        "terminalCommand": ""
+                    },
+                    "id": "plugin:ssh-agent"
                 },
                 {
                     "defaultSettings": {
@@ -230,6 +253,24 @@
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
                     "textColor": "none"
+                },
+                {
+                    "defaultSettings": {
+                        "compactMode": false,
+                        "defaultPeerAction": "copy-ip",
+                        "hideDisconnected": false,
+                        "hideMullvadExitNodes": true,
+                        "pingCount": 5,
+                        "refreshInterval": 5000,
+                        "showIpAddress": true,
+                        "showPeerCount": true,
+                        "sshUsername": "",
+                        "taildropDownloadDir": "~/Downloads",
+                        "taildropEnabled": true,
+                        "taildropReceiveMode": "operator",
+                        "terminalCommand": ""
+                    },
+                    "id": "plugin:tailscale"
                 },
                 {
                     "displayMode": "onhover",
@@ -354,11 +395,62 @@
     },
     "desktopWidgets": {
         "enabled": false,
-        "gridSnap": false,
+        "gridSnap": true,
         "gridSnapScale": false,
         "monitorWidgets": [
+            {
+                "name": "eDP-1",
+                "widgets": [
+                    {
+                        "defaultSettings": {
+                            "barWidth": 0.6,
+                            "bloomIntensity": 0.5,
+                            "customPrimaryColor": "#6750A4",
+                            "customSecondaryColor": "#625B71",
+                            "fadeWhenIdle": false,
+                            "innerDiameter": 0.7,
+                            "ringOpacity": 0.8,
+                            "rotationSpeed": 0.5,
+                            "sensitivity": 1.5,
+                            "useCustomColors": false,
+                            "visualizationMode": 3,
+                            "waveThickness": 1
+                        },
+                        "id": "plugin:fancy-audiovisualizer",
+                        "scale": 2.888803746527285,
+                        "showBackground": true,
+                        "x": 520,
+                        "y": 80
+                    },
+                    {
+                        "hideMode": "hidden",
+                        "id": "MediaPlayer",
+                        "roundedCorners": true,
+                        "scale": 1.257780933068502,
+                        "showAlbumArt": true,
+                        "showBackground": false,
+                        "showButtons": true,
+                        "showVisualizer": false,
+                        "visualizerType": "linear",
+                        "x": 700,
+                        "y": 960
+                    },
+                    {
+                        "clockColor": "none",
+                        "clockStyle": "digital",
+                        "customFont": "",
+                        "format": "HH:mm\\nd MMMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "showBackground": false,
+                        "useCustomFont": false,
+                        "x": 880,
+                        "y": 440
+                    }
+                ]
+            }
         ],
-        "overviewEnabled": true
+        "overviewEnabled": false
     },
     "dock": {
         "animationSpeed": 1,
