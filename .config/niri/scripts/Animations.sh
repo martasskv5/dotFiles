@@ -13,17 +13,17 @@ SCRIPTSDIR="$HOME/.config/niri/scripts"
 animations_dir="$HOME/.config/niri/animations"
 UserConfigs="$HOME/.config/niri/configs/user"
 rofi_theme="$HOME/.config/rofi/config-Animations.rasi"
-msg='❗NOTE:❗ This will copy animations into configs/user/Animations.kdl'
+msg='❗NOTE:❗ This will copy animations into configs/user/WindowAnimations.kdl'
 # list of animation files, sorted alphabetically with numbers first
-animations_list=$(find -L "$animations_dir" -maxdepth 1 -type f | sed 's/.*\///' | sed 's/\.conf$//' | sort -V)
+animations_list=$(find -L "$animations_dir" -maxdepth 1 -type f | sed 's/.*\///' | sed 's/\.kdl$//' | sort -V)
 
 # Rofi Menu
 chosen_file=$(echo "$animations_list" | rofi -i -dmenu -config $rofi_theme -mesg "$msg")
 
 # Check if a file was selected
 if [[ -n "$chosen_file" ]]; then
-    full_path="$animations_dir/$chosen_file.conf"    
-    cp "$full_path" "$UserConfigs/Animations.kdl"
+    full_path="$animations_dir/$chosen_file.kdl"
+    cp "$full_path" "$UserConfigs/WindowAnimations.kdl"
     notify-send -u low -i "$iDIR/ja.png" "$chosen_file" "Niri animation preset loaded"
 fi
 

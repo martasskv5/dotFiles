@@ -362,3 +362,5 @@ include "configs/user/Animations.kdl"
 include "configs/user/WindowRules.kdl"
 include "configs/user/Startup_Apps.kdl"
 include "configs/user/Keybinds.kdl"
+
+include "configs/user/WindowAnimations.kdl"

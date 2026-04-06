@@ -56,11 +56,15 @@ binds {
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+Alt+R { reset-window-height; }
 
-    // Focus movement
-    Mod+Left  { focus-column-left; }
-    Mod+Right { focus-column-right; }
-    Mod+Up    { focus-window-up; }
-    Mod+Down  { focus-window-down; }
+    // Focus movement + Windows-like snap/move on horizontal arrows.
+    Mod+Left  { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh left"; }
+    Mod+Right { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh right"; }
+    Mod+Up    { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh up"; }
+    Mod+Down  { spawn-sh "$HOME/.config/niri/scripts/SnapMoveMonitor.sh down"; }
+    Mod+Alt+Left  { focus-column-left; }
+    Mod+Alt+Right { focus-column-right; }
+    Mod+Alt+Up    { focus-window-up; }
+    Mod+Alt+Down  { focus-window-down; }
 
     // Move windows / columns
     Mod+Ctrl+Left  { move-column-left; }
