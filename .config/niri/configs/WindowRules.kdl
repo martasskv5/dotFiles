@@ -32,7 +32,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^(org\.gnome\.Nautilus|thunar|pcmanfm-qt|app\.drey\.Warp)$"#
+    match app-id=r#"^(org\.gnome\.Nautilus|pcmanfm-qt|app\.drey\.Warp)$"#
     open-floating true
 }
 

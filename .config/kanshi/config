@@ -13,3 +13,7 @@ profile lock {
     output DP-4 disable
     output DP-5 disable
 }
+profile {
+    output DP-4 position 0,0 mode 1920x1080@60.0000 scale 1.00 transform normal
+    output eDP-1 position 1920,0 mode 1920x1080@144.0030 scale 1.00 transform normal
+}
