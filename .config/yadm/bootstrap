@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Define source and destination
+THEME_SRC="$HOME/.config/sddm/themes/silent/components/UserDelegate.qml"
+THEME_DEST="/usr/share/sddm/themes/silent/components/UserDelegate.qml"
+AVATAR_SRC="$HOME/.config/sddm/faces/yourname.face.icon"
+AVATAR_DEST="/usr/share/sddm/faces/yourname.face.icon"
+
+# Copy modified QML to system theme folder
+if [ -f "$THEME_SRC" ]; then
+    echo "Deploying modified SilentSDDM component..."
+    sudo cp "$THEME_SRC" "$THEME_DEST"
+fi
+
+# Copy GIF avatar and set permissions
+if [ -f "$AVATAR_SRC" ]; then
+    echo "Setting up animated avatar..."
+    sudo cp "$AVATAR_SRC" "$AVATAR_DEST"
+    sudo chmod 644 "$AVATAR_DEST"
+fi
+
+# Apply theme in SDDM config if not already set
+if ! grep -q "Current=silent" /etc/sddm.conf.d/theme.conf 2>/dev/null; then
+    echo "[Theme]\nCurrent=silent" | sudo tee /etc/sddm.conf.d/theme.conf
+fi
