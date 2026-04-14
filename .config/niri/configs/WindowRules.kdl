@@ -28,7 +28,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"^PacketTracer$"#
-    open-floating true
+    default-column-width { proportion 1.0; }
 }
 
 window-rule {

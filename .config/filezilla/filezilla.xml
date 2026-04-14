@@ -130,42 +130,27 @@
 		<Setting name="Show Tree Local">0</Setting>
 		<Setting name="Show Tree Remote">0</Setting>
 		<Setting name="Show message log">0</Setting>
-		<Setting name="Window position and size">1 0 0 1920 991 </Setting>
 		<Setting name="File associations (v2)" platform="unix">php /usr/bin/mousepad %f</Setting>
+		<Setting name="Sitemanager last selected">0/martinko@cloud1.martas.local</Setting>
+		<Setting name="Window position and size">1 434 0 1920 991 </Setting>
 		<Setting name="Tab data" sensitive="1">
 			<Tabs>
 				<Tab connected="1" selected="1">
-					<Host>93.123.118.99</Host>
+					<Host>cloud1.martas.local</Host>
 					<Port>22</Port>
 					<Protocol>1</Protocol>
 					<Type>0</Type>
-					<User>MartinMichalec3AI</User>
-					<Pass encoding="base64">UUt3RU9xeGNxYmlmalhRa2U0VWs=</Pass>
-					<Logontype>1</Logontype>
-					<EncodingType>Auto</EncodingType>
-					<BypassProxy>0</BypassProxy>
-					<Name>MartinMichalec3AI@93.123.118.99</Name>
-					<Site>0/MartinMichalec3AI@93.123.118.99</Site>
-					<RemotePath>1 0 4 home 17 MartinMichalec3AI 3 web 17 michalec.ziaci.eu 11 public_html 8 includes</RemotePath>
-					<LocalPath>/home/martinko/OneDrive - MSFT/Skola/SPSITknm 25-26/04 - DAA/elektro/includes/</LocalPath>
-				</Tab>
-				<Tab connected="1">
-					<Host>u00t1-01</Host>
-					<Port>22</Port>
-					<Protocol>1</Protocol>
-					<Type>0</Type>
-					<User>itakademia</User>
+					<User>martinko</User>
 					<Pass encoding="base64" />
 					<Logontype>1</Logontype>
 					<EncodingType>Auto</EncodingType>
 					<BypassProxy>0</BypassProxy>
-					<Name>itakademia@u00t1-01</Name>
-					<Site>0/itakademia@u00t1-01</Site>
-					<RemotePath>1 0 2 C: 5 xampp 6 htdocs 7 elektro</RemotePath>
-					<LocalPath>/tmp/elektro/</LocalPath>
+					<Name>martinko@cloud1.martas.local</Name>
+					<Site>0/martinko@cloud1.martas.local</Site>
+					<RemotePath>1 0 4 home 8 martinko</RemotePath>
+					<LocalPath>/home/martinko/Documents/</LocalPath>
 				</Tab>
 			</Tabs>
 		</Setting>
-		<Setting name="Sitemanager last selected">0/MartinMichalec3AI@93.123.118.99</Setting>
 	</Settings>
 </FileZilla3>

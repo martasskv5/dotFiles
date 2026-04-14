@@ -255,6 +255,9 @@
                     "textColor": "none"
                 },
                 {
+                    "id": "plugin:netbird"
+                },
+                {
                     "defaultSettings": {
                         "compactMode": false,
                         "defaultPeerAction": "copy-ip",

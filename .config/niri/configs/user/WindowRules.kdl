@@ -1,7 +1,8 @@
 // Converted from UserConfigs/WindowRules.conf (closest Niri equivalents).
 
+// Add more apps here and give them `default-column-width { proportion 1.0; }`
+// if you want them to open maximized when they start in a workspace.
 window-rule {
-    match app-id=r#"^PacketTracer$"#
-    open-floating true
-    default-column-width {}
+    match app-id=r#"^(PacketTracer|code|code-url-handler|VSCode|Code|com\.visualstudio\.code|code-oss|freeshow|zen)$"#
+    default-column-width { proportion 1.0; }
 }
