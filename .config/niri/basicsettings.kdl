@@ -62,7 +62,8 @@ window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
     draw-border-with-background false
-} 
+}
+ 
 
 input {
     // warp-mouse-to-focus
@@ -82,7 +83,7 @@ input {
         // left-handed
         click-method "button-areas"
         scroll-method "two-finger"
-        accel-speed 0.20
+        accel-speed 0.2
         accel-profile "adaptive"
         tap-button-map "left-right-middle"
         scroll-factor 1.0
@@ -92,7 +93,7 @@ input {
         // natural-scroll
         // left-handed
         // middle-emulation
-        accel-speed 1.00
+        accel-speed 1.0
         accel-profile "adaptive"
         scroll-factor 1.0
     }
@@ -108,7 +109,7 @@ input {
 hotkey-overlay {
     hide-not-bound
     skip-at-startup
-    }
+}
 
 gestures {
     hot-corners {
@@ -117,14 +118,11 @@ gestures {
     }
 }
 
-debug {
-    // honor-xdg-activation-with-invalid-serial 
-}
+debug 
 
-cursor {
-    // hide-when-typing 
-    // hide-after-inactive-ms {self.behavior_tab.inactive_spinbox.value()}
-}
+
+cursor 
+
 
     // * do not show backups
 

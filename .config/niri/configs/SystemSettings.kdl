@@ -58,7 +58,5 @@ layout {
     }
 }
 
-cursor {
-    // Closest niri equivalent for reducing jumps across workspace changes.
-    // no explicit Hypr cursor warp mode exists in niri.
-}
+cursor 
+

@@ -12,14 +12,15 @@ binds {
 
     // Hypr script integrations
     Mod+A hotkey-overlay-title="Toggle overview" { spawn-sh "$HOME/.config/niri/scripts/OverviewToggle.sh"; }
-    Mod+H hotkey-overlay-title="Key hints" { spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; } // Depends on noctalia keybind cheatsheet plugin, can be replaced with KeyHints.sh script
+    Mod+H hotkey-overlay-title="Key hints" { spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"; }
+ // Depends on noctalia keybind cheatsheet plugin, can be replaced with KeyHints.sh script
     Mod+T hotkey-overlay-title="Change theme" { spawn-sh "$HOME/.config/niri/scripts/ThemeChanger.sh"; }
     Mod+Shift+Return hotkey-overlay-title="Drop terminal" { spawn-sh "$HOME/.config/niri/scripts/Dropterminal.sh kitty"; }
     Mod+V hotkey-overlay-title="Clipboard manager" { spawn-sh "$HOME/.config/niri/scripts/ClipManager.sh"; }
     Mod+Alt+E hotkey-overlay-title="Emoji picker" { spawn-sh "$HOME/.config/niri/scripts/RofiEmoji.sh"; }
     Mod+S hotkey-overlay-title="Search" { spawn-sh "$HOME/.config/niri/scripts/RofiSearch.sh"; }
     Mod+Ctrl+S hotkey-overlay-title="Window switcher" { spawn-sh "rofi -show window"; }
-    Mod+Shift+K hotkey-overlay-title="Show keybind list" { spawn-sh "$HOME/.config/niri/scripts/KeyBinds.sh"; }
+    // Mod+Shift+K hotkey-overlay-title="Show keybind list" { spawn-sh "$HOME/.config/niri/scripts/KeyBinds.sh"; }
     Mod+Alt+R hotkey-overlay-title="Refresh session" { spawn-sh "$HOME/.config/niri/scripts/Refresh.sh"; }
     Mod+Alt+O hotkey-overlay-title="Change blur" { spawn-sh "$HOME/.config/niri/scripts/ChangeBlur.sh"; }
     Mod+Shift+G hotkey-overlay-title="Toggle game mode" { spawn-sh "$HOME/.config/niri/scripts/GameMode.sh"; }
@@ -44,7 +45,8 @@ binds {
     Ctrl+Alt+Delete hotkey-overlay-title="Quit niri" { quit; }
     Mod+Shift+N hotkey-overlay-title="Notifications" { spawn-sh "swaync-client -t -sw"; }
     Mod+Shift+E hotkey-overlay-title="Quick settings" { spawn-sh "$HOME/.config/niri/scripts/Kool_Quick_Settings.sh"; }
-    Ctrl+Alt+P hotkey-overlay-title="Power menu" { spawn-sh "$HOME/.config/niri/scripts/Wlogout.sh"; }
+    // Ctrl+Alt+P hotkey-overlay-title="Power menu" { spawn-sh "$HOME/.config/niri/scripts/Wlogout.sh"; }
+    Ctrl+Alt+P hotkey-overlay-title="Power menu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
     Mod+Shift+P hotkey-overlay-title="Power off monitors" { power-off-monitors; }
 
     // Layout and window controls
@@ -138,6 +140,6 @@ binds {
 
     // Dynamic screencast toggling (useful for games or exclusive fullscreen apps)
     Mod+Alt+S hotkey-overlay-title="Cast focused window" {
-        spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg -j focused-window | jq .id)";
+        spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg -j focused-window | jq .id)" ;
     }
 }

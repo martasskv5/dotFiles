@@ -22,4 +22,5 @@ input {
         tap
         natural-scroll
     }
+    keyboard
 }

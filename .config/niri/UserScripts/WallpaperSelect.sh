@@ -156,6 +156,18 @@ apply_video_wallpaper() {
   fi
   kill_wallpaper_for_video
 
+  # Generate a preview image for Wallust (extract a frame from the video)
+  preview_dir="$HOME/.cache/video_preview"
+  mkdir -p "$preview_dir"
+  base_name=$(basename "$video_path")
+  preview_img="$preview_dir/${base_name%.*}.png"
+  if [[ ! -f "$preview_img" ]]; then
+    ffmpeg -v error -y -i "$video_path" -ss 00:00:01.000 -vframes 1 "$preview_img" || true
+  fi
+
+  # Run Wallust using the extracted preview so colors are derived from the video
+  "$SCRIPTSDIR/WallustSwww.sh" "$preview_img"
+
   # Apply video wallpaper using mpvpaper
   mpvpaper '*' -o "load-scripts=no no-audio --loop" "$video_path" &
 }
