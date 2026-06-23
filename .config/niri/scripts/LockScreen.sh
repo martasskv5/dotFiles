@@ -17,6 +17,7 @@ bash "$HOME/.config/niri/UserScripts/WeatherWrap.sh" >/dev/null 2>&1
 
 kanshictl switch lock >/dev/null 2>&1 || true
 
-loginctl lock-session
+# loginctl lock-session
+hyprlock -c "$HOME/.config/hypr/hyprlock.conf" >/dev/null 2>&1 || true
 
 NIRI_LOCK_OUTPUT_STATE_FILE="$current_profile_file" nohup "$HOME/.config/niri/scripts/RestoreExternalOutputs.sh" >/dev/null 2>&1 &

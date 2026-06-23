@@ -40,8 +40,8 @@ binds {
     // Session / system
     Mod+Q repeat=false hotkey-overlay-title="Close window" { close-window; }
     Mod+Shift+Q hotkey-overlay-title="Kill active process" { spawn-sh "$HOME/.config/niri/scripts/KillActiveProcess.sh"; }
-    // Mod+L { spawn-sh "$HOME/.config/niri/scripts/LockScreen.sh"; }
-    Mod+L hotkey-overlay-title="Lock screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+L { spawn-sh "$HOME/.config/niri/scripts/LockScreen.sh"; }
+    // Mod+L hotkey-overlay-title="Lock screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Ctrl+Alt+Delete hotkey-overlay-title="Quit niri" { quit; }
     Mod+Shift+N hotkey-overlay-title="Notifications" { spawn-sh "swaync-client -t -sw"; }
     Mod+Shift+E hotkey-overlay-title="Quick settings" { spawn-sh "$HOME/.config/niri/scripts/Kool_Quick_Settings.sh"; }
