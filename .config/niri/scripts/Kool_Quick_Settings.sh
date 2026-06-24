@@ -188,6 +188,7 @@ Edit System Default Window Rules
 Edit System Default Settings
 --- UTILITIES ---
 Set SDDM Wallpaper
+Set Hyprlock Theme
 Choose Kitty Terminal Theme
 Configure Monitors (nwg-displays)
 Configure Workspace Rules (nwg-displays)
@@ -224,6 +225,7 @@ main() {
         "Edit System Default Window Rules") file="$configs/WindowRules.conf" ;;
         "Edit System Default Settings") file="$configs/SystemSettings.conf" ;;
         "Set SDDM Wallpaper") $scriptsDir/sddm_wallpaper.sh --normal ;;
+        "Set Hyprlock Theme") $scriptsDir/HyprlockTheme.sh ;;
         "Choose Kitty Terminal Theme") $scriptsDir/Kitty_themes.sh ;;
         "Configure Monitors (nwg-displays)") 
             if ! command -v nwg-displays &>/dev/null; then

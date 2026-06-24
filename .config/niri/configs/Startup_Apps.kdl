@@ -7,7 +7,7 @@ spawn-at-startup "kanshi"
 spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "swaync"
-// spawn-at-startup "hypridle"
+spawn-at-startup "hypridle"
 spawn-at-startup "rog-control-center"
 spawn-at-startup "blueman-applet"
 
