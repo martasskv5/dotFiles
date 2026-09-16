@@ -25,10 +25,10 @@ export ANTHROPIC_BASE_URL="http://localhost:8082"
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 #pokemon-colorscripts --no-title -s -r #without fastfetch
-pokemon-colorscripts --no-title -s -r | fastfetch -c $HOME/.config/fastfetch/config-pokemon.jsonc --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
+#pokemon-colorscripts --no-title -s -r | fastfetch -c $HOME/.config/fastfetch/config-pokemon.jsonc --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
 
 # fastfetch. Will be disabled if above colorscript was chosen to install
-#fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
+fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
 
 # Set-up icons for files/directories in terminal using lsd
 alias ls='lsd'
@@ -253,8 +253,8 @@ export SSH_AUTH_SOCK="/tmp/ssh-agent-$USER.sock"
 # pnpm
 export PNPM_HOME="/home/martinko/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
 
@@ -265,3 +265,5 @@ source <(ng completion script)
 # Load starship
 eval "$(starship init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
+
+. "$HOME/.cargo/env"

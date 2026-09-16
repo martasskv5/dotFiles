@@ -223,15 +223,6 @@
                 },
                 {
                     "defaultSettings": {
-                        "sessionsFile": "~/.pageant-tray-v2-sessions.json",
-                        "showNotifications": true,
-                        "socketPath": "",
-                        "terminalCommand": ""
-                    },
-                    "id": "plugin:ssh-agent"
-                },
-                {
-                    "defaultSettings": {
                     },
                     "id": "plugin:kde-connect"
                 },

@@ -6,3 +6,52 @@ window-rule {
     match app-id=r"^(PacketTracer|code|code-url-handler|VSCode|Code|com\.visualstudio\.code|code-oss|freeshow|zen)$"
     default-column-width { proportion 1.0; }
 }
+
+window-rule {
+    match app-id="^kitty$"
+
+    // All chroma/blur properties must live inside this dedicated block
+    background-effect {
+        // Explicitly enable background blur (must be a boolean flag)
+        blur true
+
+        // Increase background color saturation to make wallpaper colors pop
+        saturation 1.4
+
+        // Adds a subtle touch of pixel noise to eliminate color banding artifacts
+        noise 0.02
+        
+        // Optional: optimizing performance by only rendering the wallpaper blur
+        xray true
+    }
+}
+
+window-rule {
+    // Escape the backslashes so KDL parses the literal dots properly
+    match app-id="^org\\.xfce\\.thunar$"
+    
+    opacity 1.0 
+
+    background-effect {
+        blur true
+        saturation 1.4
+        noise 0.02
+        xray true
+    }
+}
+
+window-rule {
+    match app-id="resolve"
+    open-floating true
+}
+
+window-rule {
+    match title="Counter-Strike 2"
+    open-fullscreen true
+    block-out-from "screen-capture" 
+}
+debug {
+    // Enables direct scanout into hardware overlay planes
+    enable-overlay-planes
+}
+

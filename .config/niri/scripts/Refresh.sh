@@ -26,9 +26,14 @@ done
 #ags -q && ags &
 
 # quit quickshell & relaunch Noctalia shell
-pkill -x quickshell >/dev/null 2>&1 || pkill -x qs >/dev/null 2>&1 || true
+# pkill -x quickshell >/dev/null 2>&1 || pkill -x qs >/dev/null 2>&1 || true
+# sleep 0.1
+# qs -c noctalia-shell >/dev/null 2>&1 &
+
+# quit noctalia and relaunch Noctalia
+pkill -x noctalia >/dev/null 2>&1 || true
 sleep 0.1
-qs -c noctalia-shell >/dev/null 2>&1 &
+noctalia >/dev/null 2>&1 &
 
 # some process to kill
 for pid in $(pidof rofi swaync ags swaybg 2>/dev/null); do
@@ -37,10 +42,10 @@ for pid in $(pidof rofi swaync ags swaybg 2>/dev/null); do
 done
 
 # relaunch Noctalia shell if the CLI is available
-sleep 0.3
-if command -v qs >/dev/null 2>&1; then
-  qs -c noctalia-shell >/dev/null 2>&1 &
-fi
+# sleep 0.3
+# if command -v qs >/dev/null 2>&1; then
+#   qs -c noctalia-shell >/dev/null 2>&1 &
+# fi
 
 # Relaunching rainbow borders if the script exists
 sleep 1

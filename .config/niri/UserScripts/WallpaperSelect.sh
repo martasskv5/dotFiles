@@ -168,9 +168,13 @@ apply_video_wallpaper() {
   # Run Wallust using the extracted preview so colors are derived from the video
   "$SCRIPTSDIR/WallustSwww.sh" "$preview_img"
 
-  # Apply video wallpaper using mpvpaper
-  mpvpaper '*' -o "load-scripts=no no-audio --loop" "$video_path" &
+  # MPV memory and performance optimization flags
+  local mpv_opts="profile=fast load-scripts=no no-audio --loop --vf-add=fps=25:round=near --cache=no --demuxer-max-bytes=10M --demuxer-max-back-bytes=10M --gpu-api=vulkan"
+
+  # Apply optimized video wallpaper using mpvpaper
+  mpvpaper '*' -o "$mpv_opts" "$video_path" &
 }
+
 
 # Main function
 main() {
