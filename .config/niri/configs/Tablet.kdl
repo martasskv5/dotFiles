@@ -1,0 +1,5 @@
+input {
+    tablet {
+        map-to-output "HDMI-A-1"  // Replace with your first monitor's name
+    }
+}

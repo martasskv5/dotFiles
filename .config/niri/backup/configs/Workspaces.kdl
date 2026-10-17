@@ -1,0 +1,6 @@
+// Mapped from hypr/workspaces.conf.
+// Hypr static workspace-to-monitor assignments are not directly equivalent in niri dynamic workspaces.
+// Retained as documentation targets:
+// workspace 1 -> eDP-1
+// workspace 2 -> HDMI-A-1
+// workspace 3 -> DP-4

@@ -1,0 +1,29 @@
+// /* ---- 💫 Dynamic Colors for Niri 💫 ---- */
+// /* wallust template - colors-niri.kdl */
+
+layout {
+	background-color "#000307"
+
+	focus-ring {
+		active-color "#95A53D"
+		inactive-color "#9AA2A6"
+	}
+
+	border {
+		active-color "#95A53D"
+		inactive-color "#9AA2A6"
+	}
+
+	insert-hint {
+		color "#63ACE4"
+	}
+
+	shadow {
+		color "#141C1Faa"
+	}
+
+}
+
+overview {
+    backdrop-color "#457EAA"
+}

@@ -1,0 +1,7 @@
+// Converted from UserConfigs/01-UserDefaults.conf
+// Niri does not support Hypr-style variables in config files.
+// These defaults are documented for script compatibility.
+
+// terminal: kitty
+// file-manager: thunar
+// search-engine: https://www.google.com/search?q={}
