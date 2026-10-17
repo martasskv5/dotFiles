@@ -3,7 +3,7 @@
 // Add more apps here and give them `default-column-width { proportion 1.0; }`
 // if you want them to open maximized when they start in a workspace.
 window-rule {
-    match app-id=r"^(PacketTracer|code|code-url-handler|VSCode|Code|com\.visualstudio\.code|code-oss|freeshow|zen)$"
+    match app-id=r"^(PacketTracer|code|code-url-handler|VSCode|Code|com\.visualstudio\.code|code-oss|freeshow|zen|Visual Studio Code)$"
     default-column-width { proportion 1.0; }
 }
 
@@ -54,4 +54,20 @@ debug {
     // Enables direct scanout into hardware overlay planes
     enable-overlay-planes
 }
+
+window-rule {
+    match app-id="^openboard$"
+    match title="^OpenBoard$"
+
+    // Force floating behavior out of niri's tiling matrix
+    open-floating true
+
+    // Stop niri from containing it to a side-by-side tile panel
+    open-fullscreen true
+
+    // Remove borders so they don't break transparency layers
+    border { off; }
+    shadow { off; }
+}
+
 

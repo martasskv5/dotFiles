@@ -2,4 +2,6 @@
 
 binds {
     Alt+Space { spawn "vicinae" "open"; }
+    Mod+G hotkey-overlay-title="Toggle Wayscriber" { spawn "wayscriber" "--daemon-toggle"; }
 }
+
