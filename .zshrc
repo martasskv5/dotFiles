@@ -77,7 +77,8 @@ i() {
         echo "  -p, --pacman    Install directly with pacman"
         echo "  -y, --yay       Install directly with yay"
         echo "  -c, --confirm   Ask for confirmation before installing"
-        echo "  Without flags:  Try pacman first, then yay if not found (auto-confirm)"
+        echo "  Without flags:  Bulk install: pacman packages first, then AUR via yay"
+        echo "                  (no prompts by default)"
         return 0
         ;;
       *)
@@ -88,40 +89,46 @@ i() {
     shift
   done
 
-  # No packages provided
   if [[ $# -eq 0 ]]; then
     echo "Usage: i [-p|-y] [-c] <package>..."
-    echo "  -p, --pacman    Install directly with pacman"
-    echo "  -y, --yay       Install directly with yay"
-    echo "  -c, --confirm   Ask for confirmation before installing"
-    echo "  Without flags:  Try pacman first, then yay if not found (auto-confirm)"
     return 1
   fi
 
   pkgs=("$@")
 
-  # Direct install with specified package manager
+  # Direct install with specified package manager (single bulk call)
   if [[ -n $force ]]; then
     if [[ $pkg_manager == "yay" ]]; then
       echo "Installing with yay: ${pkgs[*]}"
-      yay -S "$confirm" "${pkgs[@]}"
+      yay -S $confirm "${pkgs[@]}"
     else
       echo "Installing with pacman: ${pkgs[*]}"
-      sudo pacman -S "${pkgs[@]}"
+      sudo pacman -S $confirm "${pkgs[@]}"
     fi
     return $?
   fi
 
-  # Try pacman first, then yay if not found
+  # Auto mode: split into repo vs AUR, then bulk-install each group
+  local repo_pkgs=()
+  local aur_pkgs=()
+
   for pkg in "${pkgs[@]}"; do
     if pacman -Ss "^${pkg}$" &>/dev/null; then
-      echo "Found '$pkg' in repos, installing with pacman..."
-      sudo pacman -S "$pkg"
+      repo_pkgs+=("$pkg")
     else
-      echo "Package '$pkg' not found in pacman, trying yay (AUR)..."
-      yay -S "$confirm" "$pkg"
+      aur_pkgs+=("$pkg")
     fi
   done
+
+  if [[ ${#repo_pkgs[@]} -gt 0 ]]; then
+    echo "Installing from repos (pacman): ${repo_pkgs[*]}"
+    sudo pacman -S $confirm "${repo_pkgs[@]}" || return $?
+  fi
+
+  if [[ ${#aur_pkgs[@]} -gt 0 ]]; then
+    echo "Installing from AUR (yay): ${aur_pkgs[*]}"
+    yay -S $confirm "${aur_pkgs[@]}" || return $?
+  fi
 }
 
 # Package updater wrapper
