@@ -1,9 +1,55 @@
-.config/google-chrome/
-.config/zen/
-.config/discord/
-.config/Code/
-! .config/Code/User/settings.json
-! .config/Code/User/keybindings.json
+# ==============================================================================
+# 1. GLOBAL DEFAULTS & CACHE BLOCKS
+# ==============================================================================
+# Ignore everything in the home directory by default
+*
+
+# Allow the main .config folder so Git can traverse into it
+!/.config/
+
+# Universal blocks for heavy noise and temporary files
 **/Cache/
 **/CachedData/
 **/*.log
+
+# Explicitly ignore heavy browser/app profiles inside .config
+/.config/google-chrome/
+/.config/zen/
+/.config/discord/
+
+# ==============================================================================
+# 2. CONFIG WHITELISTS
+# ==============================================================================
+# Ignore any unlisted folders inside .config
+/.config/*
+
+# Whitelist your 22 tracked configuration directories (and all contents/subfolders)
+!/.config/btop/
+!/.config/cava/
+!/.config/fastfetch/
+!/.config/filezilla/
+!/.config/ghostty/
+!/.config/hypr/
+!/.config/hyprlock/
+!/.config/kanshi/
+!/.config/kitty/
+!/.config/niri/
+!/.config/noctalia/
+!/.config/nvim/
+!/.config/rofi/
+!/.config/sddm/
+!/.config/spicetify/
+!/.config/swappy/
+!/.config/swaync/
+!/.config/vicinae/
+!/.config/wallust/
+!/.config/waybar/
+!/.config/yadm/
+
+# Special exception rule for VS Code settings
+!/.config/Code/
+/.config/Code/*
+!/.config/Code/User/
+/.config/Code/User/*
+!/.config/Code/User/settings.json
+!/.config/Code/User/keybindings.json
