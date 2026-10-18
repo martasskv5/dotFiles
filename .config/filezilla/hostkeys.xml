@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<FileZilla3 version="3.71.1" platform="*nix">
+	<Server Host="93.123.118.99" Port="22">
+		<Hostkey>AAAAC3NzaC1lZDI1NTE5AAAAIEeq2AzvWNAbvfoCjgNxrxO76sVJou/eEkof/SyAo0oH</Hostkey>
+	</Server>
+	<Server Host="cloud1.martas.local" Port="22">
+		<Hostkey>AAAAC3NzaC1lZDI1NTE5AAAAIIlclzl89MUAsWF2hBWtAjECLwxlkYZ1A4vMG5mIrOr/</Hostkey>
+	</Server>
+	<Server Host="cloud1.martas.local" Port="2222">
+		<Hostkey>AAAAC3NzaC1lZDI1NTE5AAAAIIlclzl89MUAsWF2hBWtAjECLwxlkYZ1A4vMG5mIrOr/</Hostkey>
+	</Server>
+	<Server Host="u00t1-01" Port="22">
+		<Hostkey>AAAAC3NzaC1lZDI1NTE5AAAAINiSOUz9DWlv9ZXO9apHUd368raLE9UBU21EsSwd4zO0</Hostkey>
+	</Server>
+	<Server Host="ubuntu-server-24" Port="22">
+		<Hostkey>AAAAC3NzaC1lZDI1NTE5AAAAIMqRZnE0+shsWBAPKqNAgWVzee4azByfCRyWbuMvELUg</Hostkey>
+	</Server>
+</FileZilla3>

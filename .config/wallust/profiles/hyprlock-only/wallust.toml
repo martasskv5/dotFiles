@@ -1,0 +1,2 @@
+[templates]
+hyprlock = { src = 'colors-hyprlock.conf', dst = '~/.config/hyprlock/colors.conf' }

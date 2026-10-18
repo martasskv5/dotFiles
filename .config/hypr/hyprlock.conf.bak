@@ -1,0 +1,4 @@
+
+source= ~/.config/hyprlock/themes/pixie.conf # Hyprlock theme config file
+
+source= ~/.config/hyprlock/wallpaper.conf # Hyprlock wallpaper config file
